@@ -24,8 +24,7 @@ internal sealed class FilterUnitsCommand : AsyncCommand<FilterUnitsCommandSettin
 
             // load input
             AnsiConsole.MarkupLine($"[green]Loading {settings.InputPath}[/]");
-            XDocument doc = XDocument.Load(settings.InputPath,
-                LoadOptions.PreserveWhitespace);
+            XDocument doc = XDocument.Load(settings.InputPath);
 
             // process document
             AnsiConsole.MarkupLine("[green]Processing...[/]");
@@ -34,7 +33,7 @@ internal sealed class FilterUnitsCommand : AsyncCommand<FilterUnitsCommandSettin
 
             // save output
             AnsiConsole.MarkupLine($"[green]Saving {settings.OutputPath}[/]");
-            doc.Save(settings.OutputPath, SaveOptions.None);
+            doc.Save(settings.OutputPath, SaveOptions.OmitDuplicateNamespaces);
 
             AnsiConsole.MarkupLine($"[green]Completed: removed={removed}[/].");
             return Task.FromResult(0);

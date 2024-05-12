@@ -2,6 +2,26 @@
 
 This tool is used to help with managing XLIFF files in Angular when using localizable libraries. The main issue here is that Angular provides no way for localizing a single library; it just extracts the messages from all the workspace and merges them into a single file. This tool helps to split the messages into separate files for each library.
 
+## Usage
+
+Syntax:
+
+```bash
+./xliff filter PRESERVED_TAG INPUT_PATH OUTPUT_PATH
+```
+
+where:
+
+- `PRESERVED_TAG` is the tag that identifies the entries to be preserved in the output file;
+- `INPUT_PATH` is the path to the input XLIFF file;
+- `OUTPUT_PATH` is the path to the output XLIFF file.
+
+Example:
+
+```bash
+./xliff filter auth-jwt-login D:\Projects\Auth\auth-jwt\src\locale\messages.it.xlf c:\users\dfusi\desktop\messages.it.xlf
+```
+
 ## Localization
 
 Here is a procedure to localize libraries in an Angular workspace. This is useful when you have a workspace with multiple libraries and you want to localize each library separately. This way, you can distribute the localization files with the library package and consumers of the library can localize it independently from the rest of the workspace.
