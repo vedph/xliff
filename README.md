@@ -1,10 +1,10 @@
-﻿# XLIFF TOOL
+﻿# XLIFF Tool
 
 This tool is used to help with managing XLIFF files in Angular when using localizable libraries. The main issue here is that Angular provides no way for localizing a single library; it just extracts the messages from all the workspace and merges them into a single file. This tool helps to split the messages into separate files for each library.
 
 ## Usage
 
-Syntax:
+Currently the tool has just a single command used for filtering. Syntax:
 
 ```bash
 ./xliff filter PRESERVED_TAG INPUT_PATH OUTPUT_PATH
