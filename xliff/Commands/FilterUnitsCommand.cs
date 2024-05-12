@@ -21,13 +21,13 @@ internal sealed class FilterUnitsCommand : AsyncCommand<FilterUnitsCommandSettin
             AnsiConsole.MarkupLine($"Output: [cyan]{settings.OutputPath}[/]");
             if (settings.PreserveUntagged)
                 AnsiConsole.MarkupLine("Preserve untagged: [cyan]yes[/]");
+            AnsiConsole.WriteLine();
 
             // load input
             AnsiConsole.MarkupLine($"[green]Loading {settings.InputPath}[/]");
             XDocument doc = XDocument.Load(settings.InputPath);
 
             // process document
-            AnsiConsole.MarkupLine("[green]Processing...[/]");
             int removed = UnitFilterer.Filter(doc, settings.UnitTag,
                 settings.PreserveUntagged);
 
